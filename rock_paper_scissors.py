@@ -38,26 +38,48 @@ while c_count < 3 and u_count < 3:
 
     users_choice = choices[user - 1]
 
+    user -= 1 # the choice is 0, 1 or 2
+
     # checks the winner of the current round
-    if (users_choice == "rock" and computer == "paper") or (
-            users_choice == "scissors" and computer == "rock") or (
-            users_choice == "paper" and computer == "scissors"
-    ):
-        print("Computer had", computer)
-        print("Computer wins")
-        c_count += 1
-    elif (users_choice == "paper" and computer == "rock") or (
-            users_choice == "rock" and computer == "scissors") or (
-            users_choice == "paper" and computer == "scissors"
-    ):
+    # for example user chooses rock (0).
+    # Rock (0) wins scissors (2). 0 - 2 = -2
+    # Another example: user chooses paper (1).
+    # Paper (1) wins rock (0). 1 - 0 = 1
+    if user - index == 1 or user - index == -2:
         print("Computer had", computer)
         print("User wins")
         u_count += 1
+    elif user - index == -1 or user - index == 2:
+        print("Computer had", computer)
+        print("Computer wins")
+        c_count += 1
     else:
+        print("Computer had", computer)
         print("TIE")
 
+    """""
+    This is an alternative, more simple solution than the other one
+    """""
+    # checks the winner of the current round
+    # if (users_choice == "rock" and computer == "paper") or (
+    #         users_choice == "scissors" and computer == "rock") or (
+    #         users_choice == "paper" and computer == "scissors"
+    # ):
+    #     print("Computer had", computer)
+    #     print("Computer wins")
+    #     c_count += 1
+    # elif (users_choice == "paper" and computer == "rock") or (
+    #         users_choice == "rock" and computer == "scissors") or (
+    #         users_choice == "paper" and computer == "scissors"
+    # ):
+    #     print("Computer had", computer)
+    #     print("User wins")
+    #     u_count += 1
+    # else:
+    #     print("TIE")
+
     round_count += 1
-    rounds["Round" + str(round_count)] = [{"Player": users_choice, "Computer": computer, "Score": str(u_count) + ":" + str(c_count) }]
+    rounds["Round" + str(round_count)] = [{"Player": users_choice, "Computer": computer, "Score": str(u_count) + ":" + str(c_count)}]
 
 
 # Prints the winner of the game
