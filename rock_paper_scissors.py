@@ -13,13 +13,16 @@ choices = ["rock", "paper", "scissors"]
 
 rounds = {}
 
+"""
+That 's how the dictionary will look like
+"""
 # rounds = {
 #     "r": [{
 #         "player": "",
 #         "computer": "",
-#
+#         "score": ""
 #     }],
-#     "score": ""
+#
 # }
 
 seed(str(datetime.now()))
