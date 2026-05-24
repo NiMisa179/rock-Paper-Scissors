@@ -2,10 +2,17 @@ from random import randrange
 from random import seed
 from datetime import datetime
 
+# This is the rock-papaer-scissors game.
+# The user picks a number 1, 2 or 3, according to the preffered choice
+# Computer picks a number 0, 1 or 2 randomly.
+# The two choices compared to each other and the winner of each round is printed
+# The game ends after 3 rounds
+
 choices = ["rock", "paper", "scissors"]
 
 seed(str(datetime.now()))
 
+# Uses those two to declare the winner
 c_count = 0
 u_count = 0
 
@@ -18,6 +25,7 @@ while c_count < 3 and u_count < 3:
 
     users_choice = choices[user - 1]
 
+    # checks the winner of the current round
     if (users_choice == "rock" and computer == "paper") or (
             users_choice == "scissors" and computer == "rock") or (
             users_choice == "paper" and computer == "scissors"
@@ -35,6 +43,7 @@ while c_count < 3 and u_count < 3:
     else:
         print("TIE")
 
+# Prints the winner of the game
 if u_count == 3:
     print("THE WINNER IS: USER")
 else:
